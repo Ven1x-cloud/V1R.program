@@ -2,7 +2,8 @@
    Internationalization – supports NL EN DE FR JA ZH
    ────────────────────────────────────────────── */
 window.I18N = (function () {
-  /* ── Translation table ── */
+  /* Default language (used as fallback throughout) */
+  const DEFAULT_LANG = 'nl';
   const translations = {
     /* ── Dutch ── */
     nl: {
@@ -251,12 +252,12 @@ window.I18N = (function () {
     },
   };
 
-  let current = 'nl';
+  let current = DEFAULT_LANG;
 
   /* ── Translate a single key ── */
   function t(key) {
-    const table = translations[current] || translations.nl;
-    return (key in table) ? table[key] : ((translations.nl[key]) || key);
+    const table = translations[current] || translations[DEFAULT_LANG];
+    return (key in table) ? table[key] : ((translations[DEFAULT_LANG][key]) || key);
   }
 
   /* ── Apply a language to the whole page ── */
@@ -299,11 +300,11 @@ window.I18N = (function () {
   function init() {
     let saved;
     try { saved = localStorage.getItem('lang'); } catch (_) { saved = null; }
-    const browserLang = (navigator.language || 'nl').slice(0, 2);
+    const browserLang = (navigator.language || DEFAULT_LANG).slice(0, 2);
     const supported = Object.keys(translations);
     const lang = (saved && supported.includes(saved))
       ? saved
-      : (supported.includes(browserLang) ? browserLang : 'nl');
+      : (supported.includes(browserLang) ? browserLang : DEFAULT_LANG);
     apply(lang);
   }
 

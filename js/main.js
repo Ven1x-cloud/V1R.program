@@ -13,7 +13,7 @@
   function getStrings() {
     return (window.I18N && window.I18N.translations[window.I18N.current])
       ? window.I18N.translations[window.I18N.current].typed
-      : ['Developer 💻', 'Designer 🎨', 'Problem solver 🧩', 'Open-source lover 🌍'];
+      : ['Developer 💻', 'Designer 🎨', 'Probleemoplosser 🧩', 'Open-source liefhebber 🌍'];
   }
 
   function type() {

@@ -17,6 +17,8 @@
   --shadow:      0 4px 24px rgba(0,0,0,.45);
   --transition:  0.3s ease;
   --nav-h:       64px;
+  /* Mobile nav open height: 5 links × ~52px + 3rem padding ≈ 410px */
+  --nav-mobile-max-h: 420px;
   --font-sans:   'Inter', system-ui, sans-serif;
   --font-mono:   'Fira Code', 'Cascadia Code', monospace;
 }
@@ -486,7 +488,7 @@ footer p { color: var(--text-muted); font-size: .88rem; }
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
   }
-  .nav-links.open { max-height: 420px; padding: 1.5rem 0; }
+  .nav-links.open { max-height: var(--nav-mobile-max-h); padding: 1.5rem 0; }
   .nav-links a { padding: .75rem 0; font-size: 1rem; }
   .hamburger { display: flex; }
 
