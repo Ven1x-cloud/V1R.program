@@ -435,6 +435,40 @@ footer p { color: var(--text-muted); font-size: .88rem; }
 .footer-socials a:hover { color: var(--accent); }
 
 /* ──────────────────────────────────────────────
+   Language Switcher
+   ────────────────────────────────────────────── */
+.lang-switcher {
+  display: flex;
+  align-items: center;
+  gap: .35rem;
+  margin-left: 1.25rem;
+}
+
+.lang-icon { font-size: .95rem; line-height: 1; }
+
+#lang-select {
+  background: var(--surface);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: .28rem .55rem;
+  font-size: .82rem;
+  font-family: var(--font-mono);
+  cursor: pointer;
+  transition: border-color var(--transition), color var(--transition);
+}
+#lang-select:hover,
+#lang-select:focus {
+  border-color: var(--accent);
+  color: var(--text);
+  outline: none;
+}
+#lang-select option {
+  background: var(--surface);
+  color: var(--text);
+}
+
+/* ──────────────────────────────────────────────
    Responsive
    ────────────────────────────────────────────── */
 @media (max-width: 768px) {
@@ -452,7 +486,7 @@ footer p { color: var(--text-muted); font-size: .88rem; }
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
   }
-  .nav-links.open { max-height: 300px; padding: 1.5rem 0; }
+  .nav-links.open { max-height: 420px; padding: 1.5rem 0; }
   .nav-links a { padding: .75rem 0; font-size: 1rem; }
   .hamburger { display: flex; }
 

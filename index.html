@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ven1x – Portfolio</title>
+  <title>Ven1x / V1R.program – Portfolio</title>
   <link rel="stylesheet" href="css/style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,28 +15,44 @@
     <div class="nav-inner">
       <a class="nav-logo" href="#hero">Ven1x<span class="accent">.</span></a>
       <ul class="nav-links">
-        <li><a href="#about">Over mij</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projecten</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#hero"     data-i18n="nav.home">Home</a></li>
+        <li><a href="#about"    data-i18n="nav.about">Over mij</a></li>
+        <li><a href="#skills"   data-i18n="nav.skills">Skills</a></li>
+        <li><a href="#projects" data-i18n="nav.projects">Projecten</a></li>
+        <li><a href="#contact"  data-i18n="nav.contact">Contact</a></li>
       </ul>
-      <button class="hamburger" id="hamburger" aria-label="Menu openen">
+      <!-- Language switcher -->
+      <div class="lang-switcher">
+        <span class="lang-icon" aria-hidden="true">🌐</span>
+        <select id="lang-select" aria-label="Select language / Taal kiezen">
+          <option value="nl">NL</option>
+          <option value="en">EN</option>
+          <option value="de">DE</option>
+          <option value="fr">FR</option>
+          <option value="ja">JA</option>
+          <option value="zh">ZH</option>
+        </select>
+      </div>
+      <button class="hamburger" id="hamburger"
+              data-i18n-aria="hamburger.aria" aria-label="Menu openen">
         <span></span><span></span><span></span>
       </button>
     </div>
   </nav>
 
-  <!-- ── Hero ── -->
+  <!-- ── Home / Hero ── -->
   <section id="hero">
     <div class="hero-content">
-      <p class="hero-greeting">Hallo, ik ben</p>
+      <p class="hero-greeting" data-i18n="hero.greeting">Hallo, ik ben</p>
       <h1 class="hero-name">Ven1x</h1>
       <p class="hero-subtitle">
         <span id="typed-text"></span><span class="cursor">|</span>
       </p>
       <div class="hero-cta">
-        <a href="#projects" class="btn btn-primary">Bekijk mijn werk</a>
-        <a href="#contact" class="btn btn-outline">Neem contact op</a>
+        <a href="#projects" class="btn btn-primary"
+           data-i18n="hero.cta.view">Bekijk mijn werk</a>
+        <a href="#contact" class="btn btn-outline"
+           data-i18n="hero.cta.contact">Neem contact op</a>
       </div>
     </div>
     <div class="hero-decor" aria-hidden="true">
@@ -48,22 +64,27 @@
   <!-- ── About ── -->
   <section id="about" class="section">
     <div class="container">
-      <h2 class="section-title">Over mij <span class="accent">//</span></h2>
+      <h2 class="section-title">
+        <span data-i18n="about.title">Over mij</span>
+        <span class="accent"> //</span>
+      </h2>
       <div class="about-grid">
         <div class="about-avatar">
           <div class="avatar-placeholder">V1</div>
         </div>
         <div class="about-text">
-          <p>
-            Hey! Ik ben <strong>Ven1x</strong>, een gepassioneerde developer die houdt van
-            het bouwen van mooie en functionele websites en applicaties.
+          <p data-i18n-html="about.p1">
+            Hey! Ik ben <strong>Ven1x</strong> (ook bekend als <strong>V1R.program</strong>),
+            een gepassioneerde developer die houdt van het bouwen van mooie en functionele
+            websites en applicaties.
           </p>
-          <p>
+          <p data-i18n="about.p2">
             Ik ben altijd op zoek naar nieuwe uitdagingen en technologieën om mezelf verder te
-            ontwikkelen. Of het nu gaat om front-end design, back-end logica of alles daartussenin –
-            ik ga ervoor.
+            ontwikkelen. Of het nu gaat om front-end design, back-end logica of alles
+            daartussenin – ik ga ervoor.
           </p>
-          <a href="#contact" class="btn btn-primary">Samenwerken?</a>
+          <a href="#contact" class="btn btn-primary"
+             data-i18n="about.cta">Samenwerken?</a>
         </div>
       </div>
     </div>
@@ -72,11 +93,14 @@
   <!-- ── Skills ── -->
   <section id="skills" class="section section-alt">
     <div class="container">
-      <h2 class="section-title">Skills <span class="accent">//</span></h2>
+      <h2 class="section-title">
+        <span data-i18n="skills.title">Skills</span>
+        <span class="accent"> //</span>
+      </h2>
       <div class="skills-grid">
         <div class="skill-card">
           <span class="skill-icon">🌐</span>
-          <h3>Front-end</h3>
+          <h3 data-i18n="skill.frontend">Front-end</h3>
           <ul>
             <li>HTML &amp; CSS</li>
             <li>JavaScript</li>
@@ -85,7 +109,7 @@
         </div>
         <div class="skill-card">
           <span class="skill-icon">⚙️</span>
-          <h3>Back-end</h3>
+          <h3 data-i18n="skill.backend">Back-end</h3>
           <ul>
             <li>Node.js</li>
             <li>Python</li>
@@ -94,7 +118,7 @@
         </div>
         <div class="skill-card">
           <span class="skill-icon">🛠️</span>
-          <h3>Tools</h3>
+          <h3 data-i18n="skill.tools">Tools</h3>
           <ul>
             <li>Git &amp; GitHub</li>
             <li>VS Code</li>
@@ -103,7 +127,7 @@
         </div>
         <div class="skill-card">
           <span class="skill-icon">🗄️</span>
-          <h3>Database</h3>
+          <h3 data-i18n="skill.database">Database</h3>
           <ul>
             <li>MySQL</li>
             <li>MongoDB</li>
@@ -117,19 +141,25 @@
   <!-- ── Projects ── -->
   <section id="projects" class="section">
     <div class="container">
-      <h2 class="section-title">Projecten <span class="accent">//</span></h2>
+      <h2 class="section-title">
+        <span data-i18n="projects.title">Projecten</span>
+        <span class="accent"> //</span>
+      </h2>
       <div class="projects-grid">
         <article class="project-card">
           <div class="project-header">
             <span class="project-icon">💻</span>
             <div class="project-links">
-              <a href="https://github.com/Ven1x-cloud/V1R.program" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <a href="https://github.com/Ven1x-cloud/V1R.program" target="_blank"
+                 rel="noopener noreferrer" aria-label="GitHub">
                 <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
               </a>
             </div>
           </div>
           <h3>V1R.program</h3>
-          <p>Mijn persoonlijke portfolio website gebouwd met vanilla HTML, CSS en JavaScript.</p>
+          <p data-i18n="project.v1r.desc">
+            Mijn persoonlijke portfolio website gebouwd met vanilla HTML, CSS en JavaScript.
+          </p>
           <div class="project-tags">
             <span class="tag">HTML</span>
             <span class="tag">CSS</span>
@@ -141,8 +171,8 @@
           <div class="project-header">
             <span class="project-icon">🚀</span>
           </div>
-          <h3>Nieuw project</h3>
-          <p>Er komen binnenkort meer projecten. Stay tuned!</p>
+          <h3 data-i18n="project.new.title">Nieuw project</h3>
+          <p data-i18n="project.new.desc">Er komen binnenkort meer projecten. Stay tuned!</p>
           <div class="project-tags">
             <span class="tag">Coming soon</span>
           </div>
@@ -152,8 +182,8 @@
           <div class="project-header">
             <span class="project-icon">🔧</span>
           </div>
-          <h3>Nieuw project</h3>
-          <p>Er komen binnenkort meer projecten. Stay tuned!</p>
+          <h3 data-i18n="project.new.title">Nieuw project</h3>
+          <p data-i18n="project.new.desc">Er komen binnenkort meer projecten. Stay tuned!</p>
           <div class="project-tags">
             <span class="tag">Coming soon</span>
           </div>
@@ -165,26 +195,36 @@
   <!-- ── Contact ── -->
   <section id="contact" class="section section-alt">
     <div class="container">
-      <h2 class="section-title">Contact <span class="accent">//</span></h2>
-      <p class="contact-intro">
+      <h2 class="section-title">
+        <span data-i18n="contact.title">Contact</span>
+        <span class="accent"> //</span>
+      </h2>
+      <p class="contact-intro" data-i18n="contact.intro">
         Wil je samenwerken of gewoon een berichtje sturen? Dat kan!
       </p>
       <form id="contact-form" class="contact-form" novalidate>
         <div class="form-row">
           <div class="form-group">
-            <label for="name">Naam</label>
-            <input type="text" id="name" name="name" placeholder="Jouw naam" required />
+            <label for="name" data-i18n="contact.name.label">Naam</label>
+            <input type="text" id="name" name="name"
+                   data-i18n-placeholder="contact.name.placeholder"
+                   placeholder="Jouw naam" required />
           </div>
           <div class="form-group">
-            <label for="email">E-mail</label>
-            <input type="email" id="email" name="email" placeholder="jouw@email.com" required />
+            <label for="email" data-i18n="contact.email.label">E-mail</label>
+            <input type="email" id="email" name="email"
+                   data-i18n-placeholder="contact.email.placeholder"
+                   placeholder="jouw@email.com" required />
           </div>
         </div>
         <div class="form-group">
-          <label for="message">Bericht</label>
-          <textarea id="message" name="message" rows="5" placeholder="Hallo Ven1x, ik wil..." required></textarea>
+          <label for="message" data-i18n="contact.message.label">Bericht</label>
+          <textarea id="message" name="message" rows="5"
+                    data-i18n-placeholder="contact.message.placeholder"
+                    placeholder="Hallo Ven1x, ik wil…" required></textarea>
         </div>
-        <button type="submit" class="btn btn-primary">Verstuur bericht ✉️</button>
+        <button type="submit" class="btn btn-primary"
+                data-i18n="contact.submit">Verstuur bericht ✉️</button>
         <p id="form-status" class="form-status" aria-live="polite"></p>
       </form>
     </div>
@@ -193,15 +233,17 @@
   <!-- ── Footer ── -->
   <footer>
     <div class="container footer-inner">
-      <p>&copy; 2026 Ven1x – Alle rechten voorbehouden</p>
+      <p data-i18n="footer.copy">© 2026 Ven1x – Alle rechten voorbehouden</p>
       <div class="footer-socials">
-        <a href="https://github.com/Ven1x-cloud" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+        <a href="https://github.com/Ven1x-cloud" target="_blank"
+           rel="noopener noreferrer" aria-label="GitHub">
           <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
         </a>
       </div>
     </div>
   </footer>
 
+  <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

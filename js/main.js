@@ -1,13 +1,5 @@
-/* ── Typing animation strings ── */
-const TYPED_STRINGS = [
-  'Developer 💻',
-  'Designer 🎨',
-  'Problem solver 🧩',
-  'Open-source lover 🌍',
-];
-
 /* ──────────────────────────────────────────────
-   Typing effect
+   Typing effect – strings are read from I18N
    ────────────────────────────────────────────── */
 (function initTyped() {
   const el = document.getElementById('typed-text');
@@ -17,8 +9,16 @@ const TYPED_STRINGS = [
   let charIndex = 0;
   let isDeleting = false;
 
+  /* Reads current-language typed strings at each string boundary */
+  function getStrings() {
+    return (window.I18N && window.I18N.translations[window.I18N.current])
+      ? window.I18N.translations[window.I18N.current].typed
+      : ['Developer 💻', 'Designer 🎨', 'Problem solver 🧩', 'Open-source lover 🌍'];
+  }
+
   function type() {
-    const current = TYPED_STRINGS[strIndex];
+    const strings = getStrings();
+    const current = strings[strIndex % strings.length];
     el.textContent = current.slice(0, charIndex);
     if (isDeleting) { charIndex--; } else { charIndex++; }
 
@@ -30,7 +30,7 @@ const TYPED_STRINGS = [
     } else if (isDeleting && charIndex < 0) {
       isDeleting = false;
       charIndex = 0;
-      strIndex = (strIndex + 1) % TYPED_STRINGS.length;
+      strIndex = (strIndex + 1) % strings.length;
       delay = 400;
     }
 
@@ -146,14 +146,14 @@ const TYPED_STRINGS = [
     const message = form.message.value.trim();
 
     if (!name || !email || !message) {
-      status.textContent = '⚠️ Vul alle velden in.';
+      status.textContent = I18N.t('form.errorFields');
       status.classList.add('error');
       return;
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      status.textContent = '⚠️ Voer een geldig e-mailadres in.';
+      status.textContent = I18N.t('form.errorEmail');
       status.classList.add('error');
       return;
     }
@@ -162,14 +162,25 @@ const TYPED_STRINGS = [
        Here we simply simulate a successful send. */
     const submitBtn = form.querySelector('[type="submit"]');
     submitBtn.disabled = true;
-    submitBtn.textContent = 'Versturen…';
+    submitBtn.textContent = I18N.t('form.sending');
 
     await new Promise(r => setTimeout(r, 900));
 
-    status.textContent = '✅ Bericht verzonden! Ik neem snel contact met je op.';
+    status.textContent = I18N.t('form.success');
     status.classList.add('success');
     form.reset();
     submitBtn.disabled = false;
-    submitBtn.textContent = 'Verstuur bericht ✉️';
+    submitBtn.textContent = I18N.t('contact.submit');
+  });
+})();
+
+/* ──────────────────────────────────────────────
+   Language switcher
+   ────────────────────────────────────────────── */
+(function initLangSwitcher() {
+  const sel = document.getElementById('lang-select');
+  if (!sel) return;
+  sel.addEventListener('change', () => {
+    I18N.apply(sel.value);
   });
 })();
