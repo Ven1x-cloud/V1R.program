@@ -19,9 +19,8 @@ const TYPED_STRINGS = [
 
   function type() {
     const current = TYPED_STRINGS[strIndex];
-    el.textContent = isDeleting
-      ? current.slice(0, charIndex--)
-      : current.slice(0, charIndex++);
+    el.textContent = current.slice(0, charIndex);
+    if (isDeleting) { charIndex--; } else { charIndex++; }
 
     let delay = isDeleting ? 50 : 100;
 
@@ -152,8 +151,8 @@ const TYPED_STRINGS = [
       return;
     }
 
-    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRe.test(email)) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
       status.textContent = '⚠️ Voer een geldig e-mailadres in.';
       status.classList.add('error');
       return;
